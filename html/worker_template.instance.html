@@ -1,0 +1,54 @@
+<!--
+    Adapted from: https://github.com/hltcoe/turkle/blob/master/examples/emotion_detection.html
+
+    HTML template that uses JavaScript to prepare the input element.
+
+    This template uses Bootstrap and jQuery.
+    The JavaScript and CSS are loaded from public CDNs.
+
+    The CSV input file should have a single column titled "text".
+    The template then uses "Kommission Kommission sucht portugiesische Beihilfen für die Sammlung,, örderung,, und VerVertung von Schlachabfällen" to display the text in a blockquote.
+
+    The CSV output file will have columns for Input.text and Answer.emotion
+    in addition to metadata columns.
+-->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script>
+$(document).ready(function() {
+  // process a click on an emotion button
+  $('.option').on('click', function(event) {
+    // copy answer to hidden input
+    $('input[name="language"]').val($(this).html());
+    // erase any selected button
+    $('.option').removeClass('btn-info');
+    // highlight the current button
+    $(this).addClass('btn-info');
+    // don't submit the form
+    event.preventDefault();
+  });
+});
+</script>
+
+<div class="container mt-2">
+  <h3>Instructions</h3>
+  <p>
+    Select the <b>majority</b> language the text is written in.
+  </p>
+  <div class="row">
+    <div class="col-8">
+      <blockquote class="blockquote jumbotron">"Kommission Kommission sucht portugiesische Beihilfen für die Sammlung,, örderung,, und VerVertung von Schlachabfällen"</blockquote>
+    </div>
+    <div class="col-4">
+      <h5>Select an option</h5>
+      <div class="btn-group-vertical">
+        <button class="btn btn-secondary option">DE</button>
+        <button class="btn btn-secondary option">CS</button>
+        <button class="btn btn-secondary option">EN</button>
+        <button class="btn btn-secondary option">FR</button>
+        <button class="btn btn-secondary option">FI</button>
+      </div>
+      <input type="hidden" name="language">
+    </div>
+  </div>
+</div>
