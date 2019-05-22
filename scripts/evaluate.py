@@ -45,7 +45,7 @@ def main():
 
         for key, value in answer_dict.items():
             percentage = value / float(total) * 100
-            print(f"'{key}': {percentage}% ({value}/{total}) ", end='')
+            print(f"'{key}': {percentage:.2f}% ({value}/{total}) ", end='')
         print()
 
 
