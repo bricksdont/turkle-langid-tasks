@@ -41,7 +41,7 @@ def main():
 
         total = sum(answer_dict.values())
 
-        print(filename + ": ", end='')
+        print(filename + ":\t", end='')
 
         for key, value in answer_dict.items():
             percentage = value / float(total) * 100
