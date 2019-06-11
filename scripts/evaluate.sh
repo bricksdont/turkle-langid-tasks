@@ -1,5 +1,8 @@
 #! /bin/bash
 
 scripts=`dirname "$0"`
+base=$scripts/..
 
-python3 $scripts/evaluate.py --csv /Users/mathiasmuller/Downloads/batch-Batch_25_results\(1\).csv
+results=$base/results
+
+python3 $scripts/evaluate.py --csv $results/batch-Batch_1_results.csv
