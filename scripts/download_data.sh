@@ -7,12 +7,22 @@ data=$base/data
 
 mkdir -p $data
 
-for folder in translations_baseline translations_bilingual translations_fine_tuned translations_pivot; do
+for folder in translations_baseline translations_bilingual translations_pivot; do
 
     mkdir -p $data/$folder
 
     scp mmueller@rattle.ifi.uzh.ch:/home/user/arios/low_resource/$folder/*.detok $data/$folder
 
+done
+
+for folder in translations_fine_tuned; do
+
+    mkdir -p $data/$folder
+
+    # reduce number of systems evaluated
+    for langpair in de-fr fr-de; do
+        scp mmueller@rattle.ifi.uzh.ch:/home/user/arios/low_resource/$folder/*.$langpair.*detok $data/$folder
+    done
 done
 
 # fix names of baseline, bilingual, pivot (fine_tuned files have correct names)

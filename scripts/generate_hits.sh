@@ -11,4 +11,4 @@ mkdir -p $csv_folder
 python3 $scripts/generate_hits.py \
         --folder $data \
         --csv-output $csv_folder/batch.csv \
-        --num-per-system 200
+        --num-per-system 100
