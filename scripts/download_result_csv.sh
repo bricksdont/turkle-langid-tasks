@@ -14,4 +14,4 @@ mkdir -p $results
 rm -rf $results/*.csv
 
 # you will be prompted for your admin password
-(source ~/venvs/turkle/bin/activate && python $scripts/download_results.py -u bricksdont --server localhost:7000 --dir $results)
+(source ~/venvs/turkle/bin/activate && python $scripts/download_results.py -u bricksdont --server http://localhost:7000 --dir $results)
