@@ -49,6 +49,13 @@ def main():
             print(f"'{key}': {percentage:.2f}% ({value}/{total}) ", end='')
         print()
 
+    print()
+
+    num_systems = len(files.keys())
+    num_annotations = sum([sum(answer_dict.values()) for file, answer_dict in files.items()])
+
+    print(f"OVERALL STATS: NUM SYSTEMS={num_systems}\tNUM_ANNOTATIONS={num_annotations}\tAVG NUM ANNOTATIONS={num_annotations / num_systems}")
+
 
 if __name__ == '__main__':
     main()
