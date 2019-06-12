@@ -43,7 +43,8 @@ def main():
 
         print(filename + ":\t", end='')
 
-        for key, value in answer_dict.items():
+        for key in sorted(answer_dict.keys()):
+            value = answer_dict[key]
             percentage = value / float(total) * 100
             print(f"'{key}': {percentage:.2f}% ({value}/{total}) ", end='')
         print()
